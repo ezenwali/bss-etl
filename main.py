@@ -112,6 +112,8 @@ def process_csv(cloud_event):
         bss_data = BikeSharingData(local_file_path)
         processed_data = bss_data.data
 
+        print(processed_data.head())
+
         # Upload data to BigQuery
         upload_to_bigquery(processed_data, BQ_DATASET, BQ_TABLE)
 
