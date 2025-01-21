@@ -10,7 +10,7 @@ steps:
       - --timeout=60s
       - --project=bike-sharing-448504
       - --region=us-central1
-      - --service-account=bss-sharing@bike-sharing-448504.iam.gserviceaccount.com
+      - --service-account=943318233312-compute@developer.gserviceaccount.com
       - --source=.
       - --entry-point=process_csv
       - --trigger-event-filters=type=google.cloud.storage.object.v1.finalized
