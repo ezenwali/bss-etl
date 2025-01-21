@@ -42,7 +42,9 @@ class BikeSharingData:
         # Rename columns
         df.rename(columns=self.col_rename, inplace=True)
         # print(df.columns) # Return
-        return df[self.col_rename.values()]
+        df["bike_id"] = pd.to_numeric(df["bike_id"], errors="coerce").astype("Int64")
+
+        return df[list(set(list(self.col_rename.values())))]
 
     def __check_date_format(self, row):
         correct_format = "%Y-%m-%d %H:%M:%S"
