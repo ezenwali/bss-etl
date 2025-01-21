@@ -43,6 +43,7 @@ class BikeSharingData:
         df.rename(columns=self.col_rename, inplace=True)
         # print(df.columns) # Return
         df["bike_id"] = pd.to_numeric(df["bike_id"], errors="coerce").astype("Int64")
+        df["is_ebike"] = df["is_ebike"].astype("boolean")
 
         return df[list(set(list(self.col_rename.values())))]
 
@@ -74,3 +75,8 @@ class BikeSharingData:
         self.data["date_ret"] = pd.to_datetime(
             self.data["date_ret"], format="%Y-%m-%d %H:%M:%S"
         )
+
+
+bss_data = BikeSharingData("data/Mobi_System_Data_2024-09.csv")
+
+print(bss_data.data.head().info())
