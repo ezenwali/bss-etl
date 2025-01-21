@@ -128,19 +128,3 @@ def process_csv(cloud_event):
     except Exception as e:
         print(f"Error processing file {file_name} from bucket {bucket_name}: {e}")
         raise
-
-
-[
-    "",
-    "",
-    "bike_id",
-    "dep_station_label",
-    "ret_station_label",
-    "formula_label",
-    "formula_label",
-    "formula_label",
-    "formula_label",
-    "covered_distance",
-    "duration",
-    "is_ebike",
-]
