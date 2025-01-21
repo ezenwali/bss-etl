@@ -77,7 +77,7 @@ def save_cleaned_data_to_storage(df, local_cleaned_file_path):
     os.remove(merged_file_path)
 
 
-def process_csv(event, context):
+def process_csv(event):
     """
     Triggered by a change to a Cloud Storage bucket.
     event: Contains file information (name, bucket, etc.)
@@ -88,9 +88,6 @@ def process_csv(event, context):
 
     # Log event context
     print(f"Processing file: {file_name} from bucket: {bucket_name}")
-    print(f"Event ID: {context.event_id}")
-    print(f"Event Type: {context.event_type}")
-    print(f"Timestamp: {context.timestamp}")
 
     # Download the file
     bucket = storage_client.bucket(bucket_name)
