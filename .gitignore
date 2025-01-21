@@ -1,0 +1,52 @@
+# Byte-compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# macOS generated files
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+*.swp
+
+# Log files
+*.log
+
+# Python egg files
+*.egg
+*.egg-info/
+dist/
+build/
+
+# pipenv, poetry, and other package managers
+Pipfile
+Pipfile.lock
+poetry.lock
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Pytest cache
+.cache
+
+# Configurations and credentials
+.env
+*.ini
+*.cfg
+
+# VSCode workspace and settings
+.vscode/
+*.code-workspace
+
+# Cloud Build artifacts
+.cloudbuild/
