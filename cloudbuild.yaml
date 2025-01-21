@@ -11,7 +11,7 @@ steps:
       - --timeout=90
       - --entry-point=process_csv
       - --allow-unauthenticated
-      - --region=us
+      - --service-account=bss-sharing@bike-sharing-448504.iam.gserviceaccount.com
 
 options:
   logging: CLOUD_LOGGING_ONLY
