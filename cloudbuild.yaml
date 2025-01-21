@@ -5,13 +5,16 @@ steps:
       - functions
       - deploy
       - bss-etl
-      - --trigger-event=google.storage.object.finalize
-      - --trigger-resource=bss_data_raw
-      - --runtime=python312
-      - --timeout=90
-      - --entry-point=process_csv
-      - --allow-unauthenticated
+      - --gen2
+      - --runtime=python39
+      - --timeout=60s
+      - --project=bike-sharing-448504
+      - --region=us-central1
       - --service-account=bss-sharing@bike-sharing-448504.iam.gserviceaccount.com
+      - --source=.
+      - --entry-point=process_csv
+      - --trigger-event-filters=type=google.cloud.storage.object.v1.finalized
+      - --trigger-event-filters=bucket=bss_data_raw
 
 options:
   logging: CLOUD_LOGGING_ONLY
