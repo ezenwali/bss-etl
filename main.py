@@ -86,6 +86,8 @@ def process_csv(event):
     event: Contains file information (name, bucket, etc.)
     context: Metadata for the event.
     """
+    print("Processing")
+    print(event)
     file_name = event["name"]
     bucket_name = event["bucket"]
 
