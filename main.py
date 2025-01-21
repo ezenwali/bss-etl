@@ -2,6 +2,8 @@ import pandas as pd
 from bike_sharing_etl.bss import BikeSharingData
 from google.cloud import storage, bigquery
 import os
+import functions_framework
+
 
 # # Initialize clients
 # storage_client = storage.Client()
@@ -77,6 +79,7 @@ import os
 #     os.remove(merged_file_path)
 
 
+@functions_framework.cloud_event
 def process_csv(event):
     """
     Triggered by a change to a Cloud Storage bucket.
