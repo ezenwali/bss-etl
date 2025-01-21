@@ -6,7 +6,7 @@ steps:
       - deploy
       - bss-etl
       - --gen2
-      - --runtime=python39
+      - --runtime=python312
       - --timeout=60s
       - --project=bike-sharing-448504
       - --region=us-central1
