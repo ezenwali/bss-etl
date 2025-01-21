@@ -43,6 +43,7 @@ poetry.lock
 .env
 *.ini
 *.cfg
+*data
 
 # VSCode workspace and settings
 .vscode/
