@@ -22,9 +22,11 @@ def upload_to_bigquery(df, dataset_id, table_id):
     try:
         table_ref = bigquery_client.dataset(dataset_id).table(table_id)
 
+        print("ref table", table_ref)
         job_config = bigquery.LoadJobConfig(
             write_disposition=bigquery.WriteDisposition.WRITE_APPEND,
         )
+        print("job_config", job_config)
 
         # Load the data
         job = bigquery_client.load_table_from_dataframe(
