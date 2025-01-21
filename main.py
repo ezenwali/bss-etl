@@ -88,6 +88,9 @@ def process_csv(event):
 
     # Log event context
     print(f"Processing file: {file_name} from bucket: {bucket_name}")
+    # print(f"Event ID: {context.event_id}")
+    # print(f"Event Type: {context.event_type}")
+    # print(f"Timestamp: {context.timestamp}")
 
     # Download the file
     bucket = storage_client.bucket(bucket_name)
