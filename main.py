@@ -24,7 +24,7 @@ def upload_to_bigquery(df, dataset_id, table_id):
         print(f"Uploading DataFrame to BigQuery...")
         print(f"DataFrame shape: {df.shape}")
         print(f"DataFrame columns: {df.columns.tolist()}")
-        print(f"DataFrame dtypes: {df.dtypes}")
+        print(f"DataFrame dtypes: {df.info()}")
         table_ref = bigquery_client.dataset(dataset_id).table(table_id)
 
         print("ref table", table_ref)
@@ -128,3 +128,19 @@ def process_csv(cloud_event):
     except Exception as e:
         print(f"Error processing file {file_name} from bucket {bucket_name}: {e}")
         raise
+
+
+[
+    "",
+    "",
+    "bike_id",
+    "dep_station_label",
+    "ret_station_label",
+    "formula_label",
+    "formula_label",
+    "formula_label",
+    "formula_label",
+    "covered_distance",
+    "duration",
+    "is_ebike",
+]
