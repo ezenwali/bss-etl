@@ -20,11 +20,16 @@ def upload_to_bigquery(df, dataset_id, table_id):
     Upload cleaned DataFrame to BigQuery table.
     """
     try:
+        # Log the DataFrame schema and data types
+        print(f"Uploading DataFrame to BigQuery...")
+        print(f"DataFrame shape: {df.shape}")
+        print(f"DataFrame columns: {df.columns.tolist()}")
+        print(f"DataFrame dtypes: {df.dtypes}")
         table_ref = bigquery_client.dataset(dataset_id).table(table_id)
 
         print("ref table", table_ref)
         job_config = bigquery.LoadJobConfig(
-            write_disposition=bigquery.WriteDisposition.WRITE_APPEND,
+            write_disposition=bigquery.WriteDisposition.WRITE_APPEND, autodetect=True
         )
         print("job_config", job_config)
 
@@ -113,8 +118,6 @@ def process_csv(cloud_event):
         # Process data
         bss_data = BikeSharingData(local_file_path)
         processed_data = bss_data.data
-
-        print(processed_data.head())
 
         # Upload data to BigQuery
         upload_to_bigquery(processed_data, BQ_DATASET, BQ_TABLE)
