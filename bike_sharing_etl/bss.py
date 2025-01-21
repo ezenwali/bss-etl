@@ -75,8 +75,3 @@ class BikeSharingData:
         self.data["date_ret"] = pd.to_datetime(
             self.data["date_ret"], format="%Y-%m-%d %H:%M:%S"
         )
-
-
-bss_data = BikeSharingData("data/Mobi_System_Data_2024-09.csv")
-
-print(bss_data.data.head().info())
