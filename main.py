@@ -80,22 +80,19 @@ def save_cleaned_data_to_storage(df, local_cleaned_file_path):
 
 
 @functions_framework.cloud_event
-def process_csv(event):
+def process_csv(cloud_event):
     """
     Triggered by a change to a Cloud Storage bucket.
     event: Contains file information (name, bucket, etc.)
     context: Metadata for the event.
     """
-    print("Processing")
-    print(event)
-    file_name = event["name"]
-    bucket_name = event["bucket"]
+    data = cloud_event.data
+
+    bucket_name = data["bucket"]
+    file_name = data["name"]
 
     # Log event context
     print(f"Processing file: {file_name} from bucket: {bucket_name}")
-    # print(f"Event ID: {context.event_id}")
-    # print(f"Event Type: {context.event_type}")
-    # print(f"Timestamp: {context.timestamp}")
 
     # Download the file
     bucket = storage_client.bucket(bucket_name)
