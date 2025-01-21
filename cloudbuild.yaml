@@ -11,6 +11,7 @@ steps:
       - --timeout=90
       - --entry-point=process_csv
       - --allow-unauthenticated
+      - --region=us \
 
 options:
   logging: CLOUD_LOGGING_ONLY
