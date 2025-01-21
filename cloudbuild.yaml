@@ -1,0 +1,16 @@
+steps:
+  - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
+    args:
+      - gcloud
+      - functions
+      - deploy
+      - bss-etl
+      - --trigger-event=google.storage.object.finalize
+      - --trigger-resource=bss_data_raw
+      - --runtime=python312
+      - --timeout=90
+      - --entry-point=process_csv
+      - --allow-unauthenticated
+
+options:
+  logging: CLOUD_LOGGING_ONLY
